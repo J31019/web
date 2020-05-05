@@ -1,0 +1,85 @@
+header {
+  height: 50px;
+  background-color: rgb(39, 100, 156);
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  z-index: 1;
+}
+#slt {
+  color: white;
+  background-color: rgb(39, 100, 156);
+  border: none;
+  position: absolute;
+  right: 55px;
+  top: 10px;
+  font-size: 20px;
+}
+
+#image {
+  height: 40px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+#theme {
+  color: white;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  font-size: 20px;
+}
+
+header ~ div {
+  position: relative;
+  top: 50px;
+}
+
+.login {
+  font-weight: 800;
+}
+
+#comments div {
+  position: relative;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 10px;
+  background-color: rgb(165, 192, 211);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#comments .choosenComment {
+  position: relative;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 10px;
+  background-color: rgb(208, 210, 212);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#bottomRight {
+  position: absolute;
+  color: gray;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  right: 0px;
+  width: 50%;
+  text-align: right;
+  padding-right: 5px;
+  border: 1px solid rgb(145, 145, 145);
+}
+#bottomLeft {
+  position: absolute;
+  color: gray;
+  margin-top: 30px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  width: 50%;
+  text-align: left;
+  padding-left: 5px;
+  border: 1px double rgb(145, 145, 145);
+}
