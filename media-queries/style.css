@@ -1,0 +1,124 @@
+.block {
+  padding: 30px;
+  font-size: 32px;
+  background: yellow;
+  border: 2px solid lightgreen;
+  margin: 4px;
+}
+
+/*
+  типы запросов (queries):
+  (*) all - все типы устройств
+  tv - телевизионный экран
+  print - принтер (внешний вид документа, при отправке на печать)
+  screen - экран монитора, либо дисплей мобильного устройства
+  handheld - мобильное (портативное) устройство
+  braille - устройства, работающие по системе Брайля
+  embossed - принтеры, которые работают по системе Брайля
+  projection - проэкторы
+  speech - устройства с поддержкой синтеза речи
+  tty - устройства с фиксированным размером символа
+
+  and - объединение типов запросов
+  not - логическое "не"
+
+  пример:
+  all not (speech and tty)
+*/
+
+/*
+  параметры запроса screen:
+
+  max-width,
+  max-height,
+  min-width,
+  min-height
+*/
+
+@media screen and (min-width: 1200px) {
+  .block {
+    display: inline-block;
+    width: 29%;
+    background: lightblue;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  .block {
+    display: inline-block;
+    background: lightcoral;
+    width: 41%;
+  }
+}
+
+.calc-block {
+  background: red;
+  color: #fff;
+  width: calc(100% - 40px);
+}
+
+@media print {
+  .block {
+    font-size: 16px;
+    border: 1px solid black;
+  }
+}
+
+@media handheld {
+  .calc-block {
+    background: blue;
+  }
+}
+
+/* АНИМАЦИЯ */
+
+#anim {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: blue;
+  border-radius: 50%;
+  /* свойства анимации */
+  animation-name: move;
+  animation-duration: 5s; /* s, ms */
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite; /* кол-во повторений анимации */
+  /*
+    (*) normal - анимация идет в обычном порядке
+    reverse - анимация идет в обратном направлении
+    alternate - нечетные кадры идут в нормальном порядке,
+                а четные - в обратном
+    alternate-reverse - нечетные кадры идут в обратном порядке,
+                        а четные - в нормальном
+  */
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-delay: 2s;
+  /*
+    краткая форма задания анимации:
+    animation: animation-name animation-duration
+     animation-timing-function animation-delay animation-iteration-count
+     animation-direction;
+
+    пример:
+    animation: move 6s ease-out 20ms infinite normal, rotate 3s ....;
+  */
+}
+
+#anim:hover {
+  animation-play-state: paused; /* приостанавливаем анимацию */
+}
+
+@keyframes move {
+  30% {
+    right: 30px;
+  }
+
+  50% {
+    border-radius: 0;
+  }
+
+  100% {
+    bottom: 30px;
+  }
+}
