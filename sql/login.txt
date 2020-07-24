@@ -1,0 +1,9 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `test`.`login`(uname varchar(50), upass varchar(16)) RETURNS int(11)
+begin
+	declare c int default 0;
+
+	select count(*) into c from users
+	where `name` = uname and `pass` = upass;
+
+	return c;
+end

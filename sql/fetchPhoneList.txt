@@ -1,0 +1,33 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test`.`fetchPhoneList`(inout list varchar(500))
+begin
+	declare phoneNumber varchar(20);
+	declare done int default 0;
+	# объявляем курсор
+	# если в процедуре/функции объявлены другие переменные,
+	# то они должны быть объявлены до объявления курсора
+	declare cur cursor for select phone from contacts;
+	# объявляем обратчик ошибки, который сработает в том случае,
+	# если курсор не сможет найти новую запись
+	# (записи в курсоре закончатся)
+	declare continue handler for not found set done = 1;
+
+	# open - открывает курсор
+	# (начинает выполнение команды select)
+	open cur;
+
+	# LOOP - бесконечный цикл
+	# getPhones - имя цикла
+	getPhones: loop
+		# fetch - выбирает одну строку из курсора
+		# и переходит на следующую
+		fetch cur into phoneNumber;
+		if done = 1 then
+			leave getPhones;
+		end if;
+		set list = concat(phoneNumber, ',', list);
+	end loop getPhones;
+
+	# close - закрывает курсор
+	# (удаляет его из памяти)
+	close cur;
+end

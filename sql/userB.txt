@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test`.`usersB`()
+begin
+	select * from users where name like 'B%';
+end

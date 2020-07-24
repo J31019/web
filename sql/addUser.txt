@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test`.`addUser`(
+	userName varchar(50), userBDay date)
+begin
+	insert into users(name, birthdate)
+	values(userName, userBDay);
+end
