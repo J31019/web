@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Comments</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span id="theme">Тема обсуждения</span>
+      <select name="ChooseUsers" id="slt" onchange="changeUser(value)">
+        <option selected>Choose the user</option>
+        <option value="user1">user1@mail.ru</option>
+        <option value="user2">user2@mail.ru</option>
+        <option value="user3">user3@mail.ru</option>
+        <option value="user4">user4@mail.ru</option></select
+      >
+      <div><img src="" id="image" /></div>
+    </header>
+    <div id="comments">
+      <div class="user1">
+        <p class="login">&lt;user1@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.
+      </div>
+      <div class="user3">
+        <p class="login">&lt;user3@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+        beatae aut dolorem. Dolores tempore odio, accusantium impedit vel
+        molestiae! Laboriosam praesentium odit illo suscipit a saepe officia
+        laborum! Non, minus.
+      </div>
+      <div class="user2">
+        <p class="login">&lt;user2@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+        beatae aut dolorem. Dolores tempore odio, accusantium impedit vel
+        molestiae! Laboriosam praesentium odit illo suscipit a saepe officia
+        laborum! Non, minus.
+      </div>
+      <div class="user2">
+        <p class="login">&lt;user2@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+        beatae aut dolorem. Dolores tempore odio, accusantium impedit vel
+        molestiae! Laboriosam praesentium odit illo suscipit a saepe officia
+        laborum! Non, minus.
+      </div>
+      <div class="user4">
+        <p class="login">&lt;user4@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.
+      </div>
+      <div class="user1">
+        <p class="login">&lt;user1@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+      </div>
+      <div class="user3">
+        <p class="login">&lt;user3@mail.ru&gt;:</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio beatae aut
+        dolorem. Dolores tempore odio, accusantium impedit vel molestiae!
+        Laboriosam praesentium odit illo suscipit a saepe officia laborum! Non,
+        minus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+        beatae aut dolorem. Dolores tempore odio, accusantium impedit vel
+        molestiae! Laboriosam praesentium odit illo suscipit a saepe officia
+        laborum! Non, minus.
+      </div>
+      <p id="bottomLeft">2020, All rights reserved</p>
+    <p id="bottomRight" >Made by: vova_fender@mail.ru</p>
+    </div>
+    
+
+    <script type="text/javascript">
+      var img = document.getElementById("image");
+
+      function changeUser(user) {
+        var comments = document.querySelectorAll("#comments div");
+        for (let index = 0; index < comments.length; index++) {
+          comments[index].classList.remove("choosenComment");
+        }
+
+        var chosenComments = document.querySelectorAll("." + user);
+        for (let index = 0; index < chosenComments.length; index++) {
+          chosenComments[index].classList.add("choosenComment");
+        }
+        switch (user) {
+          case "user1":
+            img.src = "img/01.jpg";
+            break;
+          case "user2":
+            img.src = "img/02.jpg";
+            break;
+          case "user3":
+            img.src = "img/03.jpg";
+            break;
+          case "user4":
+            img.src = "img/04.jpg";
+            break;
+          default:
+            img.src = "";
+        }
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
